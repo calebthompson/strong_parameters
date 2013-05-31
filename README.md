@@ -81,9 +81,9 @@ params.require(:post).permit(:title)
 
 ## Handling of Unpermitted Keys
 
-By default parameter keys that are not explicitly permitted will be logged in the development and test environment. In other environments these parameters will simply be filtered out and ignored.
+By default parameter keys that are not explicitly permitted will cause errors to be raised in the development and test environment. In other environments these parameters will simply be filtered out and ignored.
 
-Additionally, this behaviour can be changed by changing the `config.action_controller.action_on_unpermitted_parameters` property in your environment files. If set to `:log` the unpermitted attributes will be logged, if set to `:raise` an exception will be raised.
+This behaviour can be changed by specifying the `config.action_controller.action_on_unpermitted_parameters` property in your environment files. If set to `:log` the unpermitted attributes will be logged, if set to `:raise` an exception will be raised. If set to `false` the unpermitted attributes will be filtered out silently.
 
 ## Use Outside of Controllers
 
